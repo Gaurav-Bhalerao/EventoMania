@@ -1,0 +1,66 @@
+{% extends 'basic.html' %}
+
+{% block title %} Contact - EventoMania {% endblock %}
+
+{% block stylecss %}
+
+{% endblock %}
+{% block body %}
+{% load static %}
+<!-- Static CSS File -->
+<link rel="stylesheet" href="{% static 'CSS/about.css' %}"> <!-- CSS -->
+
+
+<section class="container-fluid contact-body">
+  
+  <div class="flex flex-col text-center w-full mb-5">
+    <h1 class="display-4"> Contact Us </h1>  <!-- Section Heading -->
+    <div class="flex justify-center">
+        <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+    </div>
+    <p class="leading-relaxed text-lg text-muted my-3"> Contact Us for free of cost assistance for your events </p>
+  </div>
+
+  <section class="text-gray-700 body-font relative form-section">
+  <form action="/contact/" method="post">
+    {% csrf_token %}
+    <div class="container-fluid px-5 py-0 mx-auto">
+      <div class="lg:w-1/2 md:w-2/3 mx-auto">
+        <div class="flex flex-wrap -m-2">
+          <div class="p-2 w-1/2">
+            <input name="fname" id="fname" placeholder="Enter First Name" type="text" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2" required>
+          </div>
+          <div class="p-2 w-1/2">
+            <input name="lname" id="lname" placeholder="Enter Last Name" type="text" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2" required>
+          </div>
+          <div class="p-2 w-1/2">
+            <input name="email" id="email" placeholder="Enter Email" type="email" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2" required>
+          </div>
+          <div class="p-2 w-1/2">
+            <input name="phone" id="phone" placeholder="Enter Phone Number" type="tel" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2" required>
+          </div>
+          <div class="p-2 w-full">
+            <textarea name="msg" id="msg" placeholder="Message" class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-indigo-500 text-base px-4 py-2 resize-none block" ></textarea>
+          </div>
+          <div class="p-2 w-full">
+            <button type="submit" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+          </div>
+          <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+            <a class="text-indigo-500">Gaurav Bhalerao</a>
+            <p class="leading-normal my-0"> Pune
+              <br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  </section>
+</section>
+{% endblock %}
+
+{% block js %}
+<script>
+  
+</script>
+{% endblock %}

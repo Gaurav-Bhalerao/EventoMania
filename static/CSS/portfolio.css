@@ -1,0 +1,31 @@
+/* Carousel Indicators */
+.carousel-control-prev, .carousel-control-next {
+    height: 100px;
+    width: 40px;
+    background: none;
+    margin: auto 0;
+    background: rgba(0, 0, 0, 0.2);
+    top:auto;
+    bottom:auto;
+    background-color:black;
+    margin-top : 80px;
+}
+.carousel-control-prev i, .carousel-control-next i {
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    margin: -16px 0 0 0;
+    z-index: 5;
+    left: 0;
+    right: 0;
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: none;
+    font-weight: bold;
+}
+.carousel-control-prev i {
+    margin-left: -3px;
+}
+.carousel-control-next i {
+    margin-right: -3px;
+}

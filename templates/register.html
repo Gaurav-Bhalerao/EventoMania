@@ -1,0 +1,147 @@
+{% extends 'basic.html' %}
+
+{% block title %} Portfolio - EventoMania {% endblock %}
+
+{% block stylecss %}
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;   
+    z-index: 2;
+}
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
+{% endblock %}
+{% block body %}
+{% load static %}
+
+    <div class="container-fluid bg-light">
+        <div class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center">Create Account</h4>
+                <p class="text-center">Get started with your free account</p>
+            <form action="/register/" method="POST">    {% csrf_token %}
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                     </div>
+                    <input  class="form-control" name="s_fname" id="s_fname" placeholder="First name" type="text" required>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                     </div>
+                    <input  class="form-control" name="s_lname" id="s_lname" placeholder="Last name" type="text" required>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                     </div>
+                    <input  class="form-control" name="s_email" id="s_email" placeholder="Email address" type="email" required>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                     </div>
+                    <input  class="form-control" name="s_phone" id="s_phone" placeholder="Enter Phone Number" type="tel" required>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input class="form-control" name="s_pass" id="s_pass" placeholder="Create password" type="password" required>
+                </div> 
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input class="form-control" name="s_cpass" id="s_cpass" placeholder="Repeat password" type="password" required>
+                </div>                                       
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+                </div>
+                <p class="divider-text">
+                    <span class="bg-light">OR</span>
+                </p>      
+                                                                                 
+            </form>
+            <div class="text-center"></p>&nbsp;Have an account? <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#EM-Login"> Sign In </button> </div>
+        </div>
+    </div>
+
+
+<!-- EventoMania Login Form Strats-->
+
+<div class="Evento-Login-Body">
+    <div class="modal fade" id="EM-Login">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content form-elegant">
+            <form action="/loginhandel/" method="POST"> {% csrf_token %}
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Login</strong></h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body mx-4">
+                    <!--Body-->
+                    <div class="md-form mb-5">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input type="text" class="form-control" name="login_email" id="login_email" placeholder="Enter Email Address" required>
+                    </div>
+                    </div>
+
+                    <div class="md-form pb-3">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input type="password" class="form-control" name="login_pass" id="login_pass" placeholder="Enter Password" required>
+                    </div>
+                    </div>
+
+                    <div class="text-center mb-3">
+                    <button type="submit" class="btn btn-rounded btn-primary z-depth-1a px-3"> Sign in </button>
+                    </div>
+                    <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
+
+                    <div class="row my-3 d-flex justify-content-center">
+                        <!--Instagram-->
+                        <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a social-edit"><i class="fab fa-instagram"></i></button>
+                        <!--Facebook-->
+                        <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a social-edit"><i class="fab fa-facebook-f text-center"></i></button>
+                        <!--Google +-->
+                        <button type="button" class="btn btn-white btn-rounded z-depth-1a social-edit"><i class="fab fa-google-plus-g"></i></button>
+                    </div>
+                </div>
+                <!--Footer-->
+                <div class="modal-footer mx-5 pt-3 mb-1 text-center">
+                    <p class="leading-relaxed text-lg text-muted my-3"> We do not share your credentials with anyone </p>
+                </div>
+            </form>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+</div>
+<!-- Assemblers Login Form Ends -->
+{% endblock %}
+
+{% block js %}  {% endblock %}

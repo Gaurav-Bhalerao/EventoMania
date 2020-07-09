@@ -1,0 +1,74 @@
+{% extends 'basic.html' %}
+
+{% block title %} Portfolio - EventoMania {% endblock %}
+
+{% block stylecss %}
+
+.col-lg-3 {
+  display: inline-block;
+  margin:0 -5px;
+  justify-content: center;
+}
+.col-lg-3 img{
+  width:100%;
+  height:200px;
+}
+
+{% endblock %}
+{% block body %}
+{% load static %}
+<!-- Static CSS File -->
+<link rel="stylesheet" href="{% static 'CSS/portfolio.css' %}"> <!-- CSS -->
+
+<div class="container-fluid mx-auto">
+  <div class="flex flex-col text-center w-full mb-5">
+    <h1 class="display-4"> Few of Our Happy Events </h1>  <!-- Section Heading -->
+    <div class="flex justify-center">
+        <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+    </div>
+  </div>
+  
+    {% for event, range, nslides in allevents %}
+    <h3 class="my-4 text-center"> <small>Best of</small> {{event.0.EI_category}} </h3>
+    <div class="row">
+    <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
+        
+    
+        <!--Slideshow starts here -->
+        <div class="container-fluid carousel-inner text-center align-item-center">
+            <!-- Carousel Field 1 -->
+            <div class="carousel-item active">
+                {% for i in event %}
+                <!-- Card n -->
+                <div class="col-lg-3 col-xs-4 col-sm-6 col-md-6">
+                    <div class="card align-item-center" style="width: 18rem;">
+                        <img src="/media/{{i.EI_img}}" class="card-img-top" alt="..."> <!--  -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{i.EI_heading}}</h5>
+                            <small> {{i.EI_loc}} </small>   
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last%}
+            </div> <div class="carousel-item">
+                {% endif %}
+            
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+<!-- left and right controls for the slide -->
+<a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+</a>
+<a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+</a>
+<!-- Corousel Slide Ends Here -->
+</div>
+{% endfor %}
+</div>
+{% endblock %}
+
+{% block js %}  {% endblock %}

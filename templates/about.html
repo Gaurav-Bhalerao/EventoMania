@@ -1,0 +1,63 @@
+{% extends 'basic.html' %}
+
+{% block title %} About - EventoMania {% endblock %}
+
+{% block stylecss %}
+
+{% endblock %}
+{% block body %}
+{% load static %}
+<!-- Static CSS File -->
+<link rel="stylesheet" href="{% static 'CSS/about.css' %}">
+<section class="about-body">
+<div class="flex flex-col text-center w-full mb-5">
+  <h1 class="display-4"> About US </h1>  <!-- Section Heading -->
+  <div class="flex justify-center">
+      <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+  </div>
+</div>
+
+<!-- About Starts Here -->
+<section class="container-fluid">
+  <section class="container-fluid text-gray-700 body-font">
+    <div class="container-fluid px-5 py-0 mx-auto">
+      <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-400 mb-8" viewBox="0 0 975.036 975.036">
+          <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+        </svg>
+        <p class="leading-relaxed text-lg"> <b> The EventoMania Was Established in 2020 the vision was to create your happy moments happiest To make you trust us we have given our events stats for the better understanding of our coustmers about our work and experties</b></p>
+        <!-- <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-11 mb-5"></span> -->
+        <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm ">Gaurav Bhalerao</h2>
+        <p class="text-gray-500"><b> Founder / CEO </b></p>
+      </div>
+    </div>
+  </section>
+  <section class="container mx-auto my-5">
+    <div class="row container mx-auto">
+      {% for i in eventstat %}
+      <div class="col-lg-3 col-md-3">
+        <div class="card text-center">
+          <div class="card-body text-center">
+            <img src="/media/{{i.ES_img}}" class="mx-auto" height="50px" width="50px" style="border-radius: 50%;"/>
+            <h3 class="card-title my-3 "> {{i.ES_count}} + </h3>
+            <p class="card-text"><h5 class="text-muted"> {{i.ES_heading}} </h5></p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</section>
+
+<!-- Stats -->
+
+<!-- Stats -->
+
+
+{% endblock %}
+
+{% block js %}
+<script>
+  
+</script>
+{% endblock %}
